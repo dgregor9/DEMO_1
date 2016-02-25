@@ -10,7 +10,7 @@
 #define DXL_BUS_ID 1  //Dynamixel on Serial1(USART1)  <-OpenCM9.04
 
 /* Dynamixel Motor IDs */
-#define RGT_MOTOR 1
+#define RGT_MOTOR 3
 #define LFT_MOTOR 2
 
 #define FWD_SPEED  200
@@ -35,7 +35,8 @@ void setup(){
   // Initialize the dynamixel bus:
   // Dynamixel 2.0 Baudrate -> 0: 9600, 1: 57600, 2: 115200, 3: 1Mbps 
   Dxl.begin(3);
-  Dxl.wheelMode(DXL_BUS_ID); //wheelMode() is to use wheel mode
+  Dxl.wheelMode(RGT_MOTOR); //wheelMode() is to use wheel mode
+  Dxl.wheelMode(LFT_MOTOR); //wheelMode() is to use wheel mode
   
   //STOP on RESET
   Dxl.goalSpeed(RGT_MOTOR, STOP_SPEED); 
